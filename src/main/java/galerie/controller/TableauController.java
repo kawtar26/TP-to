@@ -32,7 +32,7 @@ public class TableauController {
      */
     @GetMapping(path = "show")
     public String afficheTableau(Model model) {
-        model.addAttribute("Tableaux", dao.findAll());
+        model.addAttribute("tableaux", dao.findAll());
         return "afficheTableaux";
     }
 
@@ -43,7 +43,7 @@ public class TableauController {
      * @return le nom de la vue à afficher ('formulaireGalerie.html')
      */
     @GetMapping(path = "add")
-    public String montreLeFormulairePourAjout(@ModelAttribute("tableau") Tableau tableau) {
+    public String montreLeFormulairePourAjout(@ModelAttribute("tableau") TableauController tableau) {
         return "formulaireTableau";
     }
 
@@ -96,6 +96,22 @@ public class TableauController {
         // Ce message est accessible et affiché dans la vue 'afficheGalerie.html'
         redirectInfo.addFlashAttribute("message", message);
         return "redirect:show"; // on se redirige vers l'affichage de la liste
+    }
+
+    private void save(TableauController tableau) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private String getNom() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void delete(TableauController tableau) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private Object findAll() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
 
