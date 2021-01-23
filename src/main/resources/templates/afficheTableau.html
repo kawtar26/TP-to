@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Les Tableaux</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" href="../static/css/style.css"/>
+  
+        
+    </head>
+    <body>
+        <div>
+        <table>
+            <thead>
+            <tr>
+                <th>Titre</th><th>Support</th><th>Dimension</th><th>Auteur</th><th>Action</th>
+            </tr>
+            </thead>
+            <tbody th:each =" t:${tableaux}">
+            <tr>
+                <td th:text="${t.titre}"></td>
+                <td th:text="${t.support}"></td>
+                <td th:text="${t.dimension}"></td>
+                <td th: if ="${t.auteur==null}">Auteurinconnu</td>
+                <td th: unless ="${t.auteur==null}">[[${t.auteur.nom}]]</td>
+                <td><a th:href ="@{delete(id= ${t.id})]">Supprimer le tableau N°[[${t.id}]></td>
+                        
+            </tr>
+                </ul>
+		<hr/>
+		<a th:href="@{/}" href="../static/index.html">Retour au menu</a>
+		<hr/>
+            </tbody>
+        </table>
+    </div>
+    </body>
+</html>
